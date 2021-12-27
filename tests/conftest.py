@@ -6,7 +6,7 @@ from appium import webdriver
 from config import DriverConfig as Config
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="package")
 def driver():
     web_driver = webdriver.Remote(Config.command_executor, Config.desired_capability)
     time.sleep(Config.launching_timeout)  # Probably it should not be used here

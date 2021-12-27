@@ -7,7 +7,7 @@ from tests.data.payload import Payload
 
 class TestMainScreen:
     @pytest.mark.modify
-    @pytest.mark.parametrize("title, description", Payload.TITLE_DESCRIPTION_PAYLOAD)
+    @pytest.mark.parametrize("title, description", Payload.TITLE_DESCRIPTION_PAYLOAD_MODIFY)
     def test_user_can_modify_task(self, driver, title, description):
         main_screen = MainScreen(driver=driver)
         modify_task_screen = ModifyTaskScreen(driver=driver)
@@ -16,7 +16,7 @@ class TestMainScreen:
         main_screen.verify_title_correctness(title)
 
     @pytest.mark.create
-    @pytest.mark.parametrize("title, description", Payload.TITLE_DESCRIPTION_PAYLOAD)
+    @pytest.mark.parametrize("title, description", Payload.TITLE_DESCRIPTION_PAYLOAD_CREATE)
     def test_user_can_create_task(self, driver, title, description):
         main_screen = MainScreen(driver=driver)
         create_task_screen = CreateTaskScreen(driver=driver)
@@ -28,7 +28,7 @@ class TestMainScreen:
         modify_task_screen.verify_task_fields(title, description)
 
     @pytest.mark.task_count
-    @pytest.mark.parametrize("title, description", Payload.TITLE_DESCRIPTION_PAYLOAD)
+    @pytest.mark.parametrize("title, description", Payload.TITLE_DESCRIPTION_PAYLOAD_COUNTING)
     def test_task_counting(self, driver, title, description):
         main_screen = MainScreen(driver=driver)
         create_task_screen = CreateTaskScreen(driver=driver)

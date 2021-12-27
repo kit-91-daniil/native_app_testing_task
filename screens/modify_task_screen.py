@@ -23,3 +23,4 @@ class ModifyTaskScreen(BaseScreen):
         description_input = self.helper.find_element(*ModifyTaskScreenLocators.DESCRIPTION_FIELD)
         Assert.element_text_is_correct(title_input, exp_title_text)
         Assert.element_text_is_correct(description_input, exp_description_text)
+        self.driver.back()
